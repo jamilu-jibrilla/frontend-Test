@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font: 1em sans-serif;
+  max-width: 1440px;
+  
+}
+
+.none {
+  display: none;
+ }
+
+ .show {
+  display: flex;
+ }
