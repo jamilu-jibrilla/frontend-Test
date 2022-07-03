@@ -49,7 +49,6 @@ const Details = ({display, setDisplay})=> {
         <Nav setDisplay={setDisplay}/>
         <main >
         <Sidebar display={display} />
-        <Sidebar />
         {user ? <section className='user-details'>
             <h3 className='back'>
             <a href="/Home"><img src={backArrow} alt="" /></a>
