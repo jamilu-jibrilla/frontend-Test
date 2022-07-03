@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
