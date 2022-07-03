@@ -6,10 +6,14 @@
   
 }
 
-.none {
-  display: none;
- }
 
- .show {
-  display: flex;
- }
+@media screen and (max-width:800px) {
+  
+  .none {
+    display: none;
+   }
+  
+   .show {
+    display: flex;
+   }
+}

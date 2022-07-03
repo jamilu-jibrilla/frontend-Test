@@ -2,6 +2,8 @@ import star from "../assets/details/star.png"
 import fullstar from "../assets/details/full-star.png"
 import useravatar from "../assets/details/user-avatar.png"
 import backArrow from "../assets/details/return-arr.png"
+import  { useState, useEffect } from 'react';
+import {useParams} from "react-router-dom"
 
 //styles
 
@@ -17,20 +19,41 @@ import icon3 from "../assets/main/icon3.png"
 import icon4 from "../assets/main/icon4.png"
 
 
-const Details = (props)=> {
-    
-  const icons = [icon, icon2, icon3, icon4]
+const Details = ({display, setDisplay})=> {
 
+    const {id} = useParams()
+  
+    const url = `https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`
+    const [user, setUser] = useState(null);
+
+    // useffect
+    useEffect(() => {
+        fetch(url)
+        .then((response) => {
+        if (response.ok) return response.json();
+        })
+        .then(res => {
+            setUser(res)
+        })
+        .catch((error) => alert(error.message));
+    }, []);
+
+
+  
   return (
-    <div className="Details">
+
+      <div className="Details">
       
-      <Nav />
-      <main >
+      
+
+        <Nav setDisplay={setDisplay}/>
+        <main >
+        <Sidebar display={display} />
         <Sidebar />
-        <section className='user-details'>
+        {user ? <section className='user-details'>
             <h3 className='back'>
-            <img src={backArrow} alt="" />
-                <a href="/Home">back to users</a>
+            <a href="/Home"><img src={backArrow} alt="" /></a>
+                <a className="arr-text" href="/Home">back to users</a>
             </h3>
 
             <div className='userheading'>
@@ -47,10 +70,10 @@ const Details = (props)=> {
                 <div className="up-sect">
                     <div className="section1">
                         <div className="image">
-                            <img src={useravatar} alt="profile avatar" />
+                            <img src={user.profile.avatar} alt="profile avatar" />
                         </div>
                         <div>
-                            <h2>Grace Efiom</h2>
+                            <h2>{`${user.profile.firstName}`}</h2>
                             <p>adsdsfdf</p>
                         </div>
                     </div>
@@ -63,8 +86,8 @@ const Details = (props)=> {
                         </div>
                     </div>
                     <div className="money-sect">
-                        <h4>200,000,000</h4>
-                        <p>23456providus bank</p>
+                        <h4>{user.accountBalance}</h4>
+                        <p>{user.accountNumber} providus bank</p>
                     </div>
                 </div>
                 <div className="links">
@@ -88,29 +111,29 @@ const Details = (props)=> {
 
                         <div className="mini-sect">
                             <h3>FULL NAME</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{`${user.profile.firstName} ${user.profile.lastName}`}</h5>
                         </div>
                         
                         
                         <div className="mini-sect">
                             <h3>PHONE NUMBER</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.phoneNumber}</h5>
                         </div>
 
                         
                         <div className="mini-sect">
                             <h3>EMAIL ADDRESS</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.email}</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>BVN</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.profile.bvn}</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>GENDER</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.profile.gender}</h5>
                         </div>
                     </div>
 
@@ -118,18 +141,18 @@ const Details = (props)=> {
 
                         <div className="mini-sect">
                             <h3>MARITAL STATUS</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>unknown</h5>
                         </div>
 
 
                         <div className="mini-sect">
                             <h3>CHILDREN</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>unknown</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>TYPE OF RESIDENCE</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>unknown</h5>
                         </div>
                         
                     </div>
@@ -145,7 +168,7 @@ const Details = (props)=> {
 
                         <div className="mini-sect">
                             <h3>LEVEL OF EDUCATION</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.education.level}</h5>
                         </div>
                         
                         
@@ -157,17 +180,17 @@ const Details = (props)=> {
                         
                         <div className="mini-sect">
                             <h3>SECTOR OF EMPLOYMENT</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.education.employmentStatus}</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>DURATION OF EMPLOYMENT</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.education.sector}</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>OFFICE MAIL</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.education.officeEmail}</h5>
                         </div>
                     </div>
 
@@ -175,18 +198,18 @@ const Details = (props)=> {
 
                         <div className="mini-sect">
                             <h3>MONTHLY INCOME</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{`${user.education.monthlyIncome[0]}`}</h5>
                         </div>
 
 
                         <div className="mini-sect">
                             <h3>LOAN REPAYMENT</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.education.loanRepayment}</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>TYPE OF RESIDENCE</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>unknown</h5>
                         </div>
                         
                     </div>
@@ -204,18 +227,18 @@ const Details = (props)=> {
 
                         <div className="mini-sect">
                             <h3>TWITTER</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.socials.twitter}</h5>
                         </div>
 
 
                         <div className="mini-sect">
                             <h3>FACEBOOK</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.socials.facebook}</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>INSTAGRAM</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{user.socials.instagram}</h5>
                         </div>
                         
                     </div>
@@ -234,25 +257,25 @@ const Details = (props)=> {
 
                         <div className="mini-sect">
                             <h3>FULL NAME</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>{`${user.guarantor.firstName} ${user.guarantor.lastName}`}</h5>
                         </div>
 
 
                         <div className="mini-sect">
                             <h3>PHONE NUMBER</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>${user.guarantor.phoneNumber}</h5>
                         </div>
 
 
 
                         <div className="mini-sect">
                             <h3>EMAIL ADDRESS</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>unknown</h5>
                         </div>
 
                         <div className="mini-sect">
                             <h3>RELATIONSHIP</h3>
-                            <h5>Grace Effiom</h5>
+                            <h5>unknown</h5>
                         </div>
                         
                     </div>
@@ -260,7 +283,7 @@ const Details = (props)=> {
                 </div>
 
             </div>
-        </section>
+        </section> : <h1>Loading...</h1>}
       </main>
     </div>
   )

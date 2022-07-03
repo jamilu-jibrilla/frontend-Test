@@ -3,11 +3,16 @@ import SearchIcon from "../assets/nav/search.png"
 import Notif from "../assets/nav/notifs.png"
 import ProfilePhoto from "../assets/nav/profile.png"
 import DownArrow from "../assets/nav/arrow.png"
-function Nav() {
+
+const Nav = ({setDisplay})=> {
+
+  const handleDisplay=()=> {
+    setDisplay((item)=> !item)
+  }
     return (
       <div className="Nav">
 
-        <div className="hamburger">
+        <div  onClick={handleDisplay} className="hamburger">
           <div className="line"></div>
           <div className="line"></div>
           <div className="line"></div>

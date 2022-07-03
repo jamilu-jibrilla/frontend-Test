@@ -1,4 +1,3 @@
-import Image from "../assets/login_image.svg"
 import Logo from "../assets/logo.svg"
 
 function Login() {

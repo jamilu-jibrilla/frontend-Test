@@ -9,6 +9,8 @@
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
 
     div {
+        transition: all 2s;
+
         display: flex;
         align-items: center;
         font-style: normal;
@@ -53,7 +55,10 @@
 
 
     @media screen and (max-width:800px) {
-        width: 100%;
-        display: none;
+        width: 100vw;
+        height: 200%;
+        position: absolute;
+        z-index: 11;
+        background-color: white;
     }
 }

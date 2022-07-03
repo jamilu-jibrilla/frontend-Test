@@ -28,10 +28,10 @@ import logOut from "../assets/sidebar/log-out.png"
 
 
 
-function Sidebar() {
+function Sidebar({display}) {
 
     return (
-      <div className="Sidebar">
+      <div className={`Sidebar ${display ? "": "none"}`}>
 
         <div className="switch-org">
           <span className="icon-before"><img  src={SwitchOrgIcon} alt="icon" /></span>

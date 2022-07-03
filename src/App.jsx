@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import  { useState } from 'react';
 
 //styles
 import './styles/App.scss'
@@ -21,19 +21,15 @@ import icon4 from "./assets/main/icon4.png"
 import filter from "./assets/main/filter-results-button.png"
 
 
-function App() {
-  
+const App = ({users})=> {
   const icons = [icon, icon2, icon3, icon4]
-  // urls 
-  const url = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users"
-  const url2 = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id"
 
-  //state
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState('');
+  //state  
   const [pages, setPage] = useState(10)
   const [pageLimit, setPageLimit] = useState(5)
   const [currentPage, setCurrentPage] = useState(1)
+  const [display, setDisplay] = useState(false)
+
   
   //functions
   
@@ -56,28 +52,13 @@ function App() {
 }
 
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        if (response.ok) return response.json();
-      })
-      .then(res => {
-        window.localStorage.setItem('users', JSON.stringify(res));
-        let data = JSON.parse(window.localStorage.getItem('users'));
-        setUsers(data)
-      })
-      .catch((error) => setError(error.message));
-  }, []);
-
-
-if (error) return <h1>{error}</h1>;
 
   return (
     <div className="App">
       
-      <Nav />
+      <Nav setDisplay={setDisplay}/>
       <main >
-        <Sidebar />
+        <Sidebar display={display} />
         <div className="main">
           
           <h1>Users</h1>
