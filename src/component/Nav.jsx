@@ -1,4 +1,4 @@
-import Logo from "../assets/Logo.svg"
+import Logo from "../assets/logo.svg"
 import SearchIcon from "../assets/nav/search.png"
 import Notif from "../assets/nav/notifs.png"
 import ProfilePhoto from "../assets/nav/profile.png"
