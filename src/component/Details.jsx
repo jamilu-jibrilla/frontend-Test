@@ -1,7 +1,7 @@
-import star from "../assets/details/star.png"
-import fullstar from "../assets/details/full-star.png"
-import useravatar from "../assets/details/user-avatar.png"
-import backArrow from "../assets/details/return-arr.png"
+import star from "/assets/details/star.png"
+import fullstar from "/assets/details/full-star.png"
+import useravatar from "/assets/details/user-avatar.png"
+import backArrow from "/assets/details/return-arr.png"
 import  { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom"
 
@@ -9,14 +9,8 @@ import {useParams} from "react-router-dom"
 
 //components
 import Nav from "../component/Nav"
-import Card from '../component/Card'
 import Sidebar from "../component/Sidebar"
 
-//icons
-import icon from "../assets/main/user-icon.png"
-import icon2 from "../assets/main/icon2.png"
-import icon3 from "../assets/main/icon3.png"
-import icon4 from "../assets/main/icon4.png"
 
 
 const Details = ({display, setDisplay})=> {
@@ -35,7 +29,7 @@ const Details = ({display, setDisplay})=> {
         .then(res => {
             setUser(res)
         })
-        .catch((error) => alert(error.message));
+        .catch((error) => console.log(error.message));
     }, []);
 
 

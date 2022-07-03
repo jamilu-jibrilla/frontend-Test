@@ -12,13 +12,13 @@ import UserCard from './component/UserCard';
 import Pagination from './component/Pagination';
 
 //icons
-import rightArrow from "../src/assets/main/left-arror.png"
-import leftArrow from "../src/assets/main/right-arrow.png"
-import icon from "./assets/main/user-icon.png"
-import icon2 from "./assets/main/icon2.png"
-import icon3 from "./assets/main/icon3.png"
-import icon4 from "./assets/main/icon4.png"
-import filter from "./assets/main/filter-results-button.png"
+import rightArrow from "/assets/main/left-arror.png"
+import leftArrow from "/assets/main/right-arrow.png"
+import icon from "/assets/main/user-icon.png"
+import icon2 from "/assets/main/icon2.png"
+import icon3 from "/assets/main/icon3.png"
+import icon4 from "/assets/main/icon4.png"
+import filter from "/assets/main/filter-results-button.png"
 
 
 const App = ({users})=> {

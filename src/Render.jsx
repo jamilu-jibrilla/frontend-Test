@@ -1,5 +1,5 @@
 import  { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes,  } from "react-router-dom";
+import { BrowserRouter , Route, Routes,  } from "react-router-dom";
 import App from "./App"
 import Login from "./component/Login";
 import Details from "./component/Details";
@@ -39,7 +39,7 @@ useEffect(() => {
 // if (error) return <h1>{error}</h1>;
 
     return(
-        // <div className="Render">
+        <div className="Render">
             <Routes>
                 <Route exact path="/" element={<Login  />} />
                 <Route path="/home" element={< App users={users}/>} />
