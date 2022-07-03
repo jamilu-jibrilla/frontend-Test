@@ -1,8 +1,8 @@
-import Logo from "/assets/logo.svg"
-import SearchIcon from "/assets/nav/search.png"
-import Notif from "/assets/nav/notifs.png"
-import ProfilePhoto from "/assets/nav/profile.png"
-import DownArrow from "/assets/nav/arrow.png"
+import Logo from "../../Public/assets/logo.svg"
+import SearchIcon from "../../Public/assets/nav/search.png"
+import Notif from "../../Public/assets/nav/notifs.png"
+import ProfilePhoto from "../../Public/assets/nav/profile.png"
+import DownArrow from "../../Public/assets/nav/arrow.png"
 
 const Nav = ({setDisplay})=> {
 

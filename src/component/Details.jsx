@@ -1,7 +1,7 @@
-import star from "/assets/details/star.png"
-import fullstar from "/assets/details/full-star.png"
-import useravatar from "/assets/details/user-avatar.png"
-import backArrow from "/assets/details/return-arr.png"
+import star from "../../Public/assets/details/star.png"
+import fullstar from "../../Public/assets/details/full-star.png"
+import useravatar from "../../Public/assets/details/user-avatar.png"
+import backArrow from "../../Public/assets/details/return-arr.png"
 import  { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom"
 
